@@ -18,8 +18,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset and Model
-Quaff supports fine-tuning on ten datasets and three models. All datasets and models are available on Hugging Face and will be automatically downloaded if the ```transformers``` package is properly installed.
-The dataset and corresponding model will be automatically downloaded when you run the fine-tuning task.
+Quaff supports fine-tuning on ten datasets and three models as in the paper. All datasets and models are available on HuggingFace and will be automatically downloaded if the ```transformers``` package is properly installed.
 
 ## Run the experiment
 ### Quick start
@@ -34,3 +33,4 @@ If you wish to predefine the outlier channels for a model, refer to the scripts 
 ```
 bash script/generate_outlier/run_phi3.sh
 ```
+the defualt outlier saving directory is ```./outlier/```

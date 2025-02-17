@@ -1,0 +1,43 @@
+python main.py \
+    --model_name_or_path "microsoft/Phi-3-mini-4k-instruct" \
+    --dataset_name "chip2" \
+    --do_train \
+    --do_eval \
+    --seed 0 \
+    --cal_dataset_name  "chip2" \
+    --outlier_strategy "mean_times" \
+    --outlier_factor 100 \
+    --source_max_len  512 \
+    --target_max_len  512 \
+    --per_device_train_batch_size 16 \
+    --per_device_eval_batch_size 16 \
+    --gradient_accumulation_steps 1 \
+    --num_train_epochs 1 \
+    --save_strategy steps \
+    --evaluation_strategy steps \
+    --logging_steps 200000 \
+    --eval_steps 10 \
+    --save_steps 200000 \
+    --save_total_limit 0 \
+    --weight_quant_type "vector" \
+    --optim paged_adamw_32bit \
+    --use_auth_token \
+    --quant_algo "quaff" \
+    --peft_type "lora" \
+    --lora_r 16 \
+    --lora_alpha 16 \
+    --lora_modules "all" \
+    --bits 32 \
+    --group_by_length \
+    --max_new_tokens  32 \
+    --learning_rate 2e-4 \
+    --adam_beta2 0.999 \
+    --max_grad_norm 0.3 \
+    --lora_dropout 0.1 \
+    --weight_decay 0.0 \
+    --report_to "none" \
+    --max_memory_MB 48000 \
+    --outlier_output_dir "./outlier/" \
+    --outlier_input_dir  "./outlier/" \
+    --output_dir "./output_dir" \
+    --checkpoint_dir "./output_dir" 
