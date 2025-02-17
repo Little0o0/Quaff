@@ -1,11 +1,14 @@
 # <img src="figures/beers.png" width="50"> Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis
 
-This repository contains the code for the paper "Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis."
+This repository implements **Quaff** (Quantized Parameter-Efficient Fine-Tuning), the official code release for our paper *"Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis"*.
 
-## Overview
-We first the Outlier Spatial Stability Hypothesis (**OSSH**): *During fine-tuning, certain activation outlier channels retain stable spatial position across training iterations*. 
+## Key Insight: 
+We propose the **Outlier Spatial Stability Hypothesis** - during fine-tuning, activation outlier channels maintain stable spatial positions across training iterations. Based on this observation, Quaff enables efficient LLM adaptation through:
 
-Building on OSSH, we propose **Quaff**, a **Qua**ntized parameter-e**f**ficient **f**ine-tuning framework for LLMs that decouples weight and activation quantization via targeted momentum scaling. Quaff dynamically computing scaling factors exclusively for invariant outlier channels, eliminating full-precision weight storage and global rescaling, enabling low quantization error and high efficiency.
+- **Targeted Momentum Scaling**: Dynamic scaling factors computed exclusively for stable outlier channels
+- **Decoupled Quantization**: Separate weight and activation quantization strategies
+- **Hardware Efficiency**: Eliminates full-size full-precision weight storage and global rescaling
+
 
 ## Installation
 To install Quaff, just use
