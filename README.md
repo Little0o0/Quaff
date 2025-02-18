@@ -101,7 +101,7 @@ forward time: 0.22443771362304688, backward time: 0.11957168579101562, all time 
 ```
 achieving $1.65 \times$ speedup.
 
-> This latency has limited reference value due to the GPU's slow startup, but it still provides some insight into efficiency of Quaff. To accurately evaluate efficiency, the model should be run for multiple steps, and the average latency should be calculated, as shown in our paper.
+> This one-step latency has limited reference value due to the GPU's slow startup, but it still provides some insight into efficiency of Quaff. To accurately evaluate efficiency, the model should be run for multiple steps, and the average latency should be calculated, as shown in our paper.
 
 ### Running the Bash Scripts
 If you want to simply use our supported models and datasets, you can run the experiments usign the bash files. 
