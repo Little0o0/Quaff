@@ -1,9 +1,12 @@
-# <img src="figures/beers.png" width="40"> Quaff: Quantized Language Model Adaptation Framework
+# <img src="figures/beers.png" width="40"> Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis
 
+This repository contains the code for the paper "Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis."
+
+## Overview
 Efficiently fine-tuning large language models (LLMs) with Quaff — a framework designed for optimized performance without sacrificing accuracy. Leverage quantization techniques to reduce latency/memory usage while maintaining high performance.
 
 ## 🚀 Key Features
-- **Targeted Momentum Scaling**: Dynamic scaling factors computed exclusively for stable outlier channels.
+- **Targeted Momentum Scaling**: Dynamic scaling factors computed exclusively for outlier channels.
 - **Decoupled Quantization**: Independent weight and activation quantization strategies.
 - **Hardware Efficiency**: Eliminates full-size FP weight storage and global rescaling.
 - **Performance Boosts**: Significant speed improvements without accuracy loss.
