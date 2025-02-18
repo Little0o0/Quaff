@@ -36,7 +36,7 @@ To use Quaff for fine-tuning on your own task to achieve amazing acceleration, f
 
 1. Load your FP model (we’ll use the Phi-3 model as an example):
 
-```
+```python
 model = AutoModelForCausalLM.from_pretrained(
     "microsoft/Phi-3-mini-4k-instruct", 
     torch_dtype=torch.float32,
@@ -47,7 +47,7 @@ model = AutoModelForCausalLM.from_pretrained(
 2. Determine outlier channels using a calibration dataset. Refer to ```quaff/calibration/outlier_detection.py```  for details on how to do this. Save the output (e.g., ```mean_times100.0_chip2_Phi-3-mini-4k-instruct.pt```) in the ```outlier/``` directory.
 
 3. Load predefined outlier channels and quantize the model:
-```
+```python
 outlier_channels = torch.load("outlier/mean_times100.0_chip2_Phi-3-mini-4k-instruct.pt")
 model = build_quantized_model(model, outlier_channels)
 print("############ Model structure after setting PEFT ############")
@@ -55,7 +55,7 @@ print(model)
 ```
 
 4. Inject PEFT parameters (e.g., LoRA fine-tuning):
-```
+```python
 config = LoraConfig(
     r=16,
     lora_alpha=16,
@@ -70,7 +70,7 @@ model = get_peft_model(model, config)
 print("############ model structure after setting peft ############")
 ```
 5. Start fine-tuning the model without no extra operation. 
-```
+```python
 example = "We propose the Outlier Spatial Stability Hypothesis - during fine-tuning, activation outlier channels maintain stable spatial positions across training iterations. Based on this observation, Quaff enables efficient LLM adaptation through: 1. Targeted Momentum Scaling: Dynamic scaling factors computed exclusively for stable outlier channels. 2. Decoupled Quantization: Separate weight and activation quantization strategies. 3. Hardware Efficiency: Eliminates full-size full-precision weight storage and global rescaling"
 
 tokenizer = AutoTokenizer.from_pretrained('microsoft/Phi-3-mini-4k-instruct')
@@ -95,11 +95,11 @@ The example is available in ```quick_start.py```
 
 **Performance Comparison.**
 On the RTX 5880 GPU, the output of ```quick_start.py``` for FP32 model is 
-```
+```bash
 forward time: 0.35955357551574707, backward time: 0.20281243324279785, all time 0.5623660087585449
 ```
 The output for Quaff model is 
-```
+```bash
 forward time: 0.22443771362304688, backward time: 0.11957168579101562, all time 0.3440093994140625
 ```
 achieving $1.65 \times$ speedup.
@@ -109,13 +109,13 @@ achieving $1.65 \times$ speedup.
 ### Running the Bash Scripts
 If you want to simply use our supported models and datasets, you can run the experiments usign the bash files. 
 First, to predefine the outlier channels for a model, you can use the scripts in the```script/generate_outlier/```directory. For example, to predefine outlier channels for the Phi-3 model, run:
-```
+```bash
 bash script/generate_outlier/run_phi3.sh
 ```
 The default outlier saving directory is ```./outlier/```
 
 To perform LoRA fine-tuning on the OIG/chip2 dataset using the Phi-3 3.8B model with Quaff, use the following command:
-```
+```bash
 bash script/peft/lora/run_quaff_phi3_chip.sh
 ```
 
