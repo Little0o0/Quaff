@@ -1,0 +1,20 @@
+python main.py \
+    --model_name_or_path  "microsoft/Phi-3-mini-4k-instruct" \
+    --outlier_strategy  "mean_times" \
+    --outlier_threshold 100. \
+    --outlier_max_ratio 0.01 \
+    --do_calibration \
+    --max_new_tokens  32 \
+    --dataloader_num_workers  4 \
+    --group_by_length \
+    --cal_dataset_name  "chip2" \
+    --dataset_name "chip2" \
+    --max_cal_samples  512 \
+    --source_max_len  512 \
+    --target_max_len  512 \
+    --per_device_eval_batch_size 16 \
+    --use_auth_token \
+    --seed 0 \
+    --peft_type "none" \
+    --outlier_output_dir  "./outlier/" \
+    --outlier_input_dir "./outlier/"

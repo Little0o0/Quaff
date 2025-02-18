@@ -1,4 +1,4 @@
-output/
+output_dir/
 quaff/__pycache__/
 quaff/train/__pycache__/
 quaff/nn/__pycache__/
@@ -6,17 +6,12 @@ quaff/autograd/__pycache__/
 quaff/calibration/__pycache__/
 quaff/utils/__pycache__/
 .idea/
-activation/
 wandb/
-demo.ipynb
 .ipynb_checkpoints/
-act_dist/
-cache/
 .pytest_cache/
-qfinetuning.egg-info/
+**egg-info**
 build/
 dist/
 .vscode
 .DS_Store
 outlier/
-scaling/

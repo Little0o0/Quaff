@@ -6,7 +6,7 @@ python main.py \
     --seed 0 \
     --cal_dataset_name  "chip2" \
     --outlier_strategy "mean_times" \
-    --outlier_factor 100 \
+    --outlier_threshold 100. \
     --source_max_len  512 \
     --target_max_len  512 \
     --per_device_train_batch_size 16 \
@@ -15,15 +15,14 @@ python main.py \
     --num_train_epochs 1 \
     --save_strategy steps \
     --evaluation_strategy steps \
-    --logging_steps 200000 \
+    --logging_steps 100 \
     --eval_steps 10 \
-    --save_steps 200000 \
+    --save_steps 100 \
     --save_total_limit 0 \
     --weight_quant_type "vector" \
     --optim paged_adamw_32bit \
     --use_auth_token \
-    --quant_algo "quaff" \
-    --peft_type "lora" \
+    --peft_type "ia3" \
     --lora_r 16 \
     --lora_alpha 16 \
     --lora_modules "all" \
@@ -39,5 +38,5 @@ python main.py \
     --max_memory_MB 48000 \
     --outlier_output_dir "./outlier/" \
     --outlier_input_dir  "./outlier/" \
-    --output_dir "./output_dir" \
-    --checkpoint_dir "./output_dir" 
+    --output_dir "./output_dir/" \
+    --checkpoint_dir "./output_dir/" 
