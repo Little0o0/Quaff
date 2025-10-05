@@ -5,16 +5,6 @@ This repository contains the code for the paper "Quaff: Quantized Parameter-Effi
 ## Overview
 Efficiently fine-tuning large language models (LLMs) with Quaff — a framework designed for optimized performance without sacrificing accuracy. Leverage quantization techniques to reduce latency/memory usage while maintaining high performance.
 
-## Citation
-```
-@article{huang2025quaff,
-  title={Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis},
-  author={Huang, Hong and Wu, Dapeng},
-  journal={arXiv preprint arXiv:2505.14742},
-  year={2025}
-}
-```
-
 ## 🚀 Key Features
 - **Targeted Momentum Scaling**: Dynamic scaling factors computed exclusively for outlier channels.
 - **Decoupled Quantization**: Independent weight and activation quantization strategies.
@@ -141,3 +131,14 @@ forward time: 0.22443771362304688, backward time: 0.11957168579101562, all time 
 achieving $1.65 \times$ speedup.
 
 > This one-step latency has limited reference value due to the GPU's slow startup, but it still provides some insight into efficiency of Quaff. To accurately evaluate efficiency, the model should be run for multiple steps, and the average latency will be more convincing, as our paper does.
+
+
+## Citation
+```
+@article{huang2025quaff,
+  title={Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis},
+  author={Huang, Hong and Wu, Dapeng},
+  journal={arXiv preprint arXiv:2505.14742},
+  year={2025}
+}
+```
